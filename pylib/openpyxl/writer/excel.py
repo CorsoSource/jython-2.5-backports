@@ -3,6 +3,8 @@ from __future__ import absolute_import
 
 """Write a .xlsx file."""
 
+from openpyxl.compat.enumerate import enumerate
+
 # Python stdlib imports
 import re
 from tempfile import TemporaryFile

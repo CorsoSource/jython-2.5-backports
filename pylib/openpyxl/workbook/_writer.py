@@ -3,6 +3,8 @@ from __future__ import absolute_import
 
 """Write the workbook global settings to the archive."""
 
+from openpyxl.compat.enumerate import enumerate
+
 from copy import copy
 
 from openpyxl.utils import absolute_coordinate, quote_sheetname

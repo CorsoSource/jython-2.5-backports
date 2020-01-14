@@ -3,6 +3,8 @@ from __future__ import absolute_import
 
 import posixpath
 
+from openpyxl.compat.enumerate import enumerate
+
 from openpyxl.descriptors.base import (
     String,
     Set,

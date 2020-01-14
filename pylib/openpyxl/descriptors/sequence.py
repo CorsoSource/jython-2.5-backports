@@ -1,6 +1,8 @@
 from __future__ import absolute_import
 # Copyright (c) 2010-2019 openpyxl
 
+from openpyxl.compat.enumerate import enumerate
+
 from openpyxl.compat.strings import safe_string
 from openpyxl.xml.functions import Element
 from openpyxl.utils.indexed_list import IndexedList

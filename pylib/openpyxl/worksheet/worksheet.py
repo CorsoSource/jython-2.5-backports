@@ -3,6 +3,8 @@ from __future__ import absolute_import
 
 """Worksheet is the 2nd-level container in Excel."""
 
+from openpyxl.compat.enumerate import enumerate
+
 try:
     _ = property.setter
 except AttributeError:

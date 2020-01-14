@@ -1,5 +1,6 @@
 # Copyright (c) 2010-2019 openpyxl
 
+from openpyxl.compat.enumerate import enumerate
 
 class IndexedList(list):
     """
