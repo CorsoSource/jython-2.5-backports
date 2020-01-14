@@ -10,8 +10,7 @@ import os.path
 try:
     next
 except NameError:
-    def next(it):
-        return it.next()
+    from openpyxl.compat.next import next
 else:
     locals()['next'] = next
 

@@ -28,8 +28,7 @@ from openpyxl.cell._writer import write_cell
 try:
     next
 except NameError:
-    def next(it):
-        return it.next()
+    from openpyxl.compat.next import next
 else:
     locals()['next'] = next
 
