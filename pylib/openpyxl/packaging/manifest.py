@@ -7,6 +7,15 @@ File manifest
 from mimetypes import MimeTypes
 import os.path
 
+try:
+    next
+except NameError:
+    def next(it):
+        return it.next()
+else:
+    locals()['next'] = next
+
+
 from openpyxl.descriptors.serialisable import Serialisable
 from openpyxl.descriptors.base import String #, Sequence
 from openpyxl.descriptors.sequence import Sequence

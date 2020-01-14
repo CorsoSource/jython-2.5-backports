@@ -23,6 +23,14 @@ except AttributeError:
             return __builtin__.property(self.fget, self.fset, fdel)
     property = _property
 
+try:
+    next
+except NameError:
+    def next(it):
+        return it.next()
+else:
+    locals()['next'] = next
+
 
 from openpyxl.cell import Cell, WriteOnlyCell
 from openpyxl.workbook.child import _WorkbookChild

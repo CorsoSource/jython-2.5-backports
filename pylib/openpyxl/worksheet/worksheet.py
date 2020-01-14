@@ -36,6 +36,14 @@ from types import GeneratorType
 def isgenerator(obj):
     return isinstance(obj, GeneratorType)
 
+try:
+    next
+except NameError:
+    def next(it):
+        return it.next()
+else:
+    locals()['next'] = next
+
 
 # compatibility imports
 # from openpyxl.compat import (

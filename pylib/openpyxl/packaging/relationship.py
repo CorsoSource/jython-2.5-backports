@@ -20,6 +20,14 @@ from openpyxl.xml.functions import (
     tostring
 )
 
+try:
+    next
+except NameError:
+    def next(it):
+        return it.next()
+else:
+    locals()['next'] = next
+
 
 class Relationship(Serialisable):
     """Represents many kinds of relationships."""

@@ -43,6 +43,15 @@ except AttributeError:
     property = _property
 
 
+try:
+    next
+except NameError:
+    def next(it):
+        return it.next()
+else:
+    locals()['next'] = next
+
+
 bytes = str
 from openpyxl.compat.numbers import NUMERIC_TYPES
 

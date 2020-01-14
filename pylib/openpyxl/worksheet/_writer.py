@@ -25,6 +25,14 @@ from .table import TablePartList
 
 from openpyxl.cell._writer import write_cell
 
+try:
+    next
+except NameError:
+    def next(it):
+        return it.next()
+else:
+    locals()['next'] = next
+
 
 ALL_TEMP_FILES = []
 

@@ -6,6 +6,15 @@ From the Python documentation https://docs.python.org/3/library/itertools.html#i
 """
 import operator
 
+try:
+    next
+except NameError:
+    def next(it):
+        return it.next()
+else:
+    locals()['next'] = next
+
+
 def accumulate(iterable, func=operator.add):
     'Return running totals'
     # accumulate([1,2,3,4,5]) --> 1 3 6 10 15

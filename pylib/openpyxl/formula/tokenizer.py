@@ -8,6 +8,14 @@ Bachtal
 
 import re
 
+try:
+    next
+except NameError:
+    def next(it):
+        return it.next()
+else:
+    locals()['next'] = next
+
 
 class TokenizerError(Exception):
     """Base class for all Tokenizer errors."""
