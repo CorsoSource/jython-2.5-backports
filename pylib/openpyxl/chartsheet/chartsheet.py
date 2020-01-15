@@ -33,7 +33,7 @@ class Chartsheet(_WorkbookChild, Serialisable):
     tagname = "chartsheet"
     _default_title = "Chart"
     _rel_type = "chartsheet"
-    _path = "/xl/chartsheets/sheet{0}.xml"
+    _path = "/xl/chartsheets/sheet%s.xml"
     mime_type = "application/vnd.openxmlformats-officedocument.spreadsheetml.chartsheet+xml"
 
     sheetPr = Typed(expected_type=ChartsheetProperties, allow_none=True)

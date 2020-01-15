@@ -44,7 +44,7 @@ def _openpyxl_shutdown():
 
 def create_temporary_file(suffix=''):
     fobj = NamedTemporaryFile(mode='w+', suffix=suffix,
-                              prefix='openpyxl.', delete=False)
+                              prefix='openpyxl.') #, delete=False)
     filename = fobj.name
     fobj.close()
     ALL_TEMP_FILES.append(filename)
