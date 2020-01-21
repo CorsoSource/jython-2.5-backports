@@ -4,7 +4,9 @@ from __future__ import absolute_import, with_statement
 """Read an xlsx file into Python"""
 
 # Python stdlib imports
-from zipfile import ZipFile, ZIP_DEFLATED, BadZipfile
+from zipfile import ZIP_DEFLATED, BadZipfile
+from openpyxl.compat._zipfile import ZipFile
+
 from sys import exc_info
 # from io import BytesIO
 from StringIO import StringIO as BytesIO

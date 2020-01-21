@@ -1,7 +1,8 @@
 from __future__ import absolute_import
 # Copyright (c) 2010-2019 openpyxl
 
-from itertools import chain
+# from itertools import chain
+from openpyxl.compat.chain import chain
 
 # from openpyxl.compat import unicode
 from openpyxl.descriptors.serialisable import Serialisable

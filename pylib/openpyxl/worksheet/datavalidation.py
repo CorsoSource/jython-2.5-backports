@@ -2,8 +2,10 @@ from __future__ import absolute_import
 # Copyright (c) 2010-2019 openpyxl
 
 from collections import defaultdict
-from itertools import chain
+# from itertools import chain
 from operator import itemgetter
+
+from openpyxl.compat.chain import chain
 
 from openpyxl.descriptors.serialisable import Serialisable
 from openpyxl.descriptors.base import (
@@ -70,7 +72,7 @@ def expand_cell_ranges(range_string):
     cells = []
     for rs in range_string.split():
         cells.extend(rows_from_range(rs))
-    return set(chain.from_iterable(cells))
+    return set(chain(cells))
 
 
 from .cell_range import MultiCellRange

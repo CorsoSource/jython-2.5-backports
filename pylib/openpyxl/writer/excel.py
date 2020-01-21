@@ -8,7 +8,9 @@ from openpyxl.compat.enumerate import enumerate
 # Python stdlib imports
 import re
 from tempfile import TemporaryFile
-from zipfile import ZipFile, ZIP_DEFLATED
+from zipfile import ZIP_DEFLATED
+from openpyxl.compat._zipfile import ZipFile
+
 
 # package imports
 # from openpyxl.compat import deprecated

@@ -21,7 +21,8 @@ except AttributeError:
 
 
 # Python stdlib imports
-from itertools import islice, chain#, product 
+from itertools import islice #, chain#, product 
+from openpyxl.compat.chain import chain
 def product(*args, **kwds):
     # product('ABCD', 'xy') --> Ax Ay Bx By Cx Cy Dx Dy
     # product(range(2), repeat=3) --> 000 001 010 011 100 101 110 111
@@ -620,7 +621,7 @@ class Worksheet(_WorkbookChild):
         Borders are then applied
         """
         mcr = MergedCellRange(self, cr.coord)
-        cells = chain.from_iterable(mcr.rows)
+        cells = chain(mcr.rows)
         next(cells) # skip first cell
 
         for row, col in cells:
@@ -645,7 +646,7 @@ class Worksheet(_WorkbookChild):
 
         self.merged_cells.remove(cr)
 
-        cells = chain.from_iterable(cr.rows)
+        cells = chain(cr.rows)
         next(cells) # skip first cell
 
         for row, col in cells:
@@ -799,7 +800,7 @@ class Worksheet(_WorkbookChild):
         else:
             cells = sorted(cell_range.cols, reverse=right)
 
-        for row, col in chain.from_iterable(cells):
+        for row, col in chain(cells):
             self._move_cell(row, col, rows, cols, translate)
 
         # rebase moved range
