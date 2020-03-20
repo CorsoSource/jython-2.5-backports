@@ -624,8 +624,14 @@ class Worksheet(_WorkbookChild):
         cells = chain(mcr.rows)
         next(cells) # skip first cell
 
-        for row, col in cells:
-            self._cells[row, col] = MergedCell(self, row, col)
+        try:
+            for row, col in cells:
+                self._cells[row, col] = MergedCell(self, row, col)
+        except ValueError:
+            for cell in cells:
+                row, col = cell[0]
+                self._cells[row, col] = MergedCell(self, row, col)
+
         mcr.format()
 
 
@@ -649,8 +655,13 @@ class Worksheet(_WorkbookChild):
         cells = chain(cr.rows)
         next(cells) # skip first cell
 
-        for row, col in cells:
-            del self._cells[(row, col)]
+        try:
+            for row, col in cells:
+                del self._cells[(row, col)]
+        except ValueError:
+            for cell in cells:
+                row, col = cell[0]
+                del self._cells[(row, col)]
 
 
     def append(self, iterable):
