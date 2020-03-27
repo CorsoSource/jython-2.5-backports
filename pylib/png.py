@@ -176,6 +176,12 @@ __version__ = "0.0.20"
 import collections
 # import io   # For io.BytesIO
 from StringIO import StringIO as BytesIO
+bytes = str
+def bytearray(source=None): # not doing encoding...
+    if source is None: 
+        return []
+    return [b for b in source]        
+
 import itertools
 import math
 # http://www.python.org/doc/2.4.4/lib/module-operator.html
