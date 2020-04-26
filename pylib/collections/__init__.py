@@ -3,6 +3,7 @@ from operator import itemgetter as _itemgetter
 from keyword import iskeyword as _iskeyword
 import sys as _sys
 
+
 __all__ = ['defaultdict', 'deque', 'namedtuple', 'OrderedDict']
 
 def namedtuple(typename, field_names, verbose=False):
@@ -108,7 +109,7 @@ except ImportError:
     from dummy_thread import get_ident as _get_ident
 
 try:
-    from _abcoll import KeysView, ValuesView, ItemsView
+    from _abcoll import * # KeysView, ValuesView, ItemsView
 except ImportError:
     pass
 
