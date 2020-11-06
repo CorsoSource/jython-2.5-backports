@@ -11,6 +11,7 @@ from transitions.extensions import MachineFactory
 from transitions.tests.test_nesting import TestNestedTransitions as TestsNested
 from transitions.tests.test_core import TestTransitions as TestCore
 from transitions.tests.utils import Stuff, DummyModel, SomeContext
+from transitions.compat import NullHandler
 
 try:
     from unittest.mock import MagicMock
@@ -19,7 +20,7 @@ except ImportError:
 
 
 logger = logging.getLogger(__name__)
-logger.addHandler(logging.NullHandler())
+logger.addHandler(NullHandler())
 
 
 def heavy_processing():

@@ -3,16 +3,17 @@ from __future__ import with_statement
 
 from collections import OrderedDict, defaultdict
 import copy
-from functools import partial, reduce
+from functools import partial
 import inspect
 import logging
 
 from six import string_types
 
 from transitions.core import State, Machine, Transition, Event, listify, MachineError, Enum, EnumMeta, EventData
+from transitions.compat import NullHandler
 
 _LOGGER = logging.getLogger(__name__)
-_LOGGER.addHandler(logging.NullHandler())
+_LOGGER.addHandler(NullHandler())
 
 # this is a workaround for dill issues when partials and super is used in conjunction
 # without it, Python 3.0 - 3.3 will not support pickling

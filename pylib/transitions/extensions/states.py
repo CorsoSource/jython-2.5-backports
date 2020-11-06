@@ -10,11 +10,10 @@ import logging
 import inspect
 
 from transitions.core import MachineError, listify, State
-from transitions.compat import property
-
+from transitions.compat import property, NullHandler
 
 _LOGGER = logging.getLogger(__name__)
-_LOGGER.addHandler(logging.NullHandler())
+_LOGGER.addHandler(NullHandler())
 
 
 class Tags(State):

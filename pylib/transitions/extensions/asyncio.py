@@ -5,16 +5,16 @@ import logging
 import asyncio
 import contextvars
 
-from functools import partial, reduce
+from functools import partial
 import copy
 
 from transitions.core import State, Condition, Transition, EventData, listify
 from transitions.core import Event, MachineError, Machine
 from transitions.extensions.nesting import HierarchicalMachine, NestedState, NestedEvent, NestedTransition, _resolve_order
-
+from transitions.compat import NullHandler
 
 _LOGGER = logging.getLogger(__name__)
-_LOGGER.addHandler(logging.NullHandler())
+_LOGGER.addHandler(NullHandler())
 
 is_subtask = contextvars.ContextVar('is_subtask', default=False)
 

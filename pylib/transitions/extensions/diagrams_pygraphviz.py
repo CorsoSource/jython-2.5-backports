@@ -11,6 +11,7 @@ import copy
 
 from transitions.extensions.nesting import NestedState
 from transitions.extensions.diagrams import BaseGraph
+from transitions.compat import NullHandler
 
 try:
     import pygraphviz as pgv
@@ -18,7 +19,7 @@ except ImportError:  # pragma: no cover
     pgv = None
 
 _LOGGER = logging.getLogger(__name__)
-_LOGGER.addHandler(logging.NullHandler())
+_LOGGER.addHandler(NullHandler())
 
 # this is a workaround for dill issues when partials and super is used in conjunction
 # without it, Python 3.0 - 3.3 will not support pickling

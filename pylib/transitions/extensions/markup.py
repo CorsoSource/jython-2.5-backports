@@ -3,7 +3,7 @@ from __future__ import with_statement
 from six import string_types, iteritems
 from functools import partial
 import itertools
-import importlib
+# import importlib
 
 from transitions.core import Machine, Enum
 from transitions.compat import property
@@ -121,7 +121,9 @@ class MarkupMachine(Machine):
             self.add_model(self, initial)
         else:
             mod_name, cls_name = markup['class-name'].rsplit('.', 1)
-            cls = getattr(importlib.import_module(mod_name), cls_name)
+            # cls = getattr(importlib.import_module(mod_name), cls_name)
+            module = __import__(mod_name)
+            cls = getattr(module, cls_name)
             self.add_model(cls(), initial)
 
     def _convert_models(self):

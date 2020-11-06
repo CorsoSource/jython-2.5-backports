@@ -5,6 +5,7 @@
     Graphviz support for (nested) machines. This also includes partial views
     of currently valid transitions.
 """
+from __future__ import with_statement
 
 import logging
 from functools import partial
@@ -14,13 +15,14 @@ import copy
 
 from transitions.extensions.diagrams import BaseGraph
 from transitions.core import listify
+from transitions.compat import NullHandler
 try:
     import graphviz as pgv
 except ImportError:  # pragma: no cover
     pgv = None
 
 _LOGGER = logging.getLogger(__name__)
-_LOGGER.addHandler(logging.NullHandler())
+_LOGGER.addHandler(NullHandler())
 
 # this is a workaround for dill issues when partials and super is used in conjunction
 # without it, Python 3.0 - 3.3 will not support pickling

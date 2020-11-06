@@ -15,9 +15,10 @@ import warnings
 import logging
 
 from transitions.core import Machine, Event, listify
+from transitions.compat import NullHandler
 
 _LOGGER = logging.getLogger(__name__)
-_LOGGER.addHandler(logging.NullHandler())
+_LOGGER.addHandler(NullHandler())
 
 # this is a workaround for dill issues when partials and super is used in conjunction
 # without it, Python 3.0 - 3.3 will not support pickling

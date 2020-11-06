@@ -58,9 +58,9 @@ class TestNestedLegacy(TestNestedTransitions):
         s.go()
         self.assertEqual('E%s1' % (self.state_cls.separator,), s.state)
         s.walk()
-        self.assertEqual('E%s3'.format(self.state_cls.separator,), s.state)
+        self.assertEqual('E%s3' % (self.state_cls.separator,), s.state)
         s.run()
-        self.assertEqual('C%s3%sa'.format(self.state_cls.separator,self.state_cls.separator,), s.state)
+        self.assertEqual('C%s3%sa' % (self.state_cls.separator,self.state_cls.separator,), s.state)
 
     def test_init_machine_with_nested_states(self):
         State = self.state_cls

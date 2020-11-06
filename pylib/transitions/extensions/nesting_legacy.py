@@ -12,12 +12,11 @@ import logging
 from six import string_types
 
 from transitions.core import Machine, Transition, State, Event, listify, MachineError, EventData, Enum
-from transitions.compat import property
+from transitions.compat import property, NullHandler
 from transitions.extensions.nesting import FunctionWrapper
 
-
 _LOGGER = logging.getLogger(__name__)
-_LOGGER.addHandler(logging.NullHandler())
+_LOGGER.addHandler(NullHandler())
 
 # This is a workaround for dill issues when partials and super is used in conjunction
 # without it, Python 3.0 - 3.3 will not support pickling
