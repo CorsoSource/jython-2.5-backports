@@ -12,7 +12,7 @@ from .packages import six
 from httplib import HTTPConnection as _HTTPConnection
 from httplib import HTTPException  # noqa: F401
 
-from .packages.compat import property
+# from .packages.compat import property
 
 try:  # Compiled with SSL?
     import ssl
